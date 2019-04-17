@@ -4,17 +4,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="250.0" prefWidth="512.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Login.Controller">
-    <children>
-        <Button fx:id="Admin_Login" layoutX="270.0" layoutY="87.0" mnemonicParsing="false" onAction="#GoAdminLoginPage" prefHeight="77.0" prefWidth="208.0" text="Admin Login">
-            <font>
-                <Font size="26.0" />
-            </font>
-        </Button>
-        <Button fx:id="User_Login" layoutX="35.0" layoutY="86.0" mnemonicParsing="false" onAction="#GoUserLoginPage" prefHeight="77.0" prefWidth="208.0" text="User Login">
-            <font>
-                <Font size="26.0" />
-            </font>
-        </Button>
-    </children>
+<AnchorPane prefHeight="250.0" prefWidth="512.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Login.Controller">
+   <children>
+      <Button fx:id="Admin_Login" layoutX="270.0" layoutY="87.0" mnemonicParsing="false" onAction="#GoAdminLoginPage" prefHeight="77.0" prefWidth="208.0" text="Admin Login">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button fx:id="User_Login" layoutX="35.0" layoutY="86.0" mnemonicParsing="false" onAction="#GoUserLoginPage" prefHeight="77.0" prefWidth="208.0" text="User Login">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+   </children>
 </AnchorPane>

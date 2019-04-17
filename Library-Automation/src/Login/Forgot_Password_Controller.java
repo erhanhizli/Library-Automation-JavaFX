@@ -30,7 +30,7 @@ public class Forgot_Password_Controller {
     public void GoBack (ActionEvent event) throws IOException
     {
         ((Node)(event.getSource())).getScene().getWindow().hide();
-        Parent p1 = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        Parent p1 = FXMLLoader.load(getClass().getResource("User_Login.fxml"));
         Scene scnLogin = new Scene(p1);
 
         stage.setTitle("Library Automation");
@@ -40,7 +40,7 @@ public class Forgot_Password_Controller {
     public void CheckRecovery(ActionEvent event) throws IOException
     {
         Conn.DBConnection connectionClass = new Conn.DBConnection();
-        Connection connection = connectionClass.Connect();
+        Connection connection = connectionClass.connect();
         try {
             Statement statement = connection.createStatement();
             String sql = "SELECT * FROM user_info WHERE user_email = '" + txtemail.getText() + "' AND user_recovery = '" + color.getText() + "'";

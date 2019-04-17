@@ -37,7 +37,7 @@ public class User_Signin_Controller {
     public void GoBack (ActionEvent event) throws IOException
     {
         ((Node)(event.getSource())).getScene().getWindow().hide();
-        Parent p1 = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        Parent p1 = FXMLLoader.load(getClass().getResource("User_Login.fxml"));
         Scene scnLogin = new Scene(p1);
 
         stage.setTitle("Library Automation");
@@ -46,7 +46,7 @@ public class User_Signin_Controller {
     }
     public void InsertUser(ActionEvent event) throws SQLException,IOException
     {
-        Connection conn = dc.Connect();
+        Connection conn = dc.connect();
 
         boolean isSelectedMale = Male.isSelected();
         boolean isSelectedFemale = Female.isSelected();
@@ -64,51 +64,76 @@ public class User_Signin_Controller {
 
             alert.showAndWait();
         }
-        if(Male.isSelected() == true)
+        else
         {
-            String sql = "INSERT INTO user_info VALUES('"+id+"','"+First_Name.getText()+"','"+Last_Name.getText()+"'," +
-                    "'"+Male.getText()+"','"+Password.getText()+"','"+Phone.getText()+"','"+E_Mail.getText()+"',"+
-                    "'"+Secret_Question.getText()+"','"+Username.getText()+"')";
-            Statement statement = conn.createStatement();
-            statement.executeUpdate(sql);
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("");
-            alert.setHeaderText("You have successfully signed in!");
-            alert.setContentText("You will be redirected to Login screen.");
+            if(Female.isSelected() == true && Male.isSelected() == true)
+            {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("");
+                alert.setHeaderText("Error occurred!");
+                alert.setContentText("Please choose only one gender!");
 
-            alert.showAndWait();
+                alert.showAndWait();
+            }
 
-            ((Node)(event.getSource())).getScene().getWindow().hide();
-            Parent p1 = FXMLLoader.load(getClass().getResource("User_Login.fxml"));
-            Scene scnUserLogin = new Scene(p1);
+            else if(Male.isSelected() == true)
+            {
 
-            stage.setTitle("User Login");
-            stage.setScene(scnUserLogin);
-            stage.show();
-        }
-        else if(Female.isSelected() == true)
-        {
-            String sql = "INSERT INTO user_info VALUES('"+id+"','"+First_Name.getText()+"','"+Last_Name.getText()+"'," +
-                    "'"+Female.getText()+"','"+Password.getText()+"','"+Phone.getText()+"','"+E_Mail.getText()+"',"+
-                    "'"+Secret_Question.getText()+"','"+Username.getText()+"')";
-            Statement statement = conn.createStatement();
-            statement.executeUpdate(sql);
+                String sql = "INSERT INTO user_info VALUES('"+id+"','"+First_Name.getText()+"','"+Last_Name.getText()+"'," +
+                        "'"+Male.getText()+"','"+Password.getText()+"','"+Phone.getText()+"','"+E_Mail.getText()+"',"+
+                        "'"+Secret_Question.getText()+"','"+Username.getText()+"')";
+                Statement statement = conn.createStatement();
+                statement.executeUpdate(sql);
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("");
-            alert.setHeaderText("You have successfully signed in!");
-            alert.setContentText("You will be redirected to Login screen.");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("");
+                alert.setHeaderText("You have successfully signed in!");
+                alert.setContentText("You will be redirected to Login screen.");
 
-            alert.showAndWait();
+                alert.showAndWait();
 
-            ((Node)(event.getSource())).getScene().getWindow().hide();
-            Parent p1 = FXMLLoader.load(getClass().getResource("User_Login.fxml"));
-            Scene scnUserLogin = new Scene(p1);
+                ((Node)(event.getSource())).getScene().getWindow().hide();
+                Parent p1 = FXMLLoader.load(getClass().getResource("User_Login.fxml"));
+                Scene scnUserLogin = new Scene(p1);
 
-            stage.setTitle("User Login");
-            stage.setScene(scnUserLogin);
-            stage.show();
+                stage.setTitle("User Login");
+                stage.setScene(scnUserLogin);
+                stage.show();
+            }
+            else if(Female.isSelected() == true)
+            {
+                String sql = "INSERT INTO user_info VALUES('"+id+"','"+First_Name.getText()+"','"+Last_Name.getText()+"'," +
+                        "'"+Female.getText()+"','"+Password.getText()+"','"+Phone.getText()+"','"+E_Mail.getText()+"',"+
+                        "'"+Secret_Question.getText()+"','"+Username.getText()+"')";
+                Statement statement = conn.createStatement();
+                statement.executeUpdate(sql);
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("");
+                alert.setHeaderText("You have successfully signed in!");
+                alert.setContentText("You will be redirected to Login screen.");
+
+                alert.showAndWait();
+
+                ((Node)(event.getSource())).getScene().getWindow().hide();
+                Parent p1 = FXMLLoader.load(getClass().getResource("User_Login.fxml"));
+                Scene scnUserLogin = new Scene(p1);
+
+                stage.setTitle("User Login");
+                stage.setScene(scnUserLogin);
+                stage.show();
+            }
+            else if(Female.isSelected() == false && Male.isSelected() == false)
+            {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("");
+                alert.setHeaderText("Error occurred!");
+                alert.setContentText("Please specify your gender!");
+
+                alert.showAndWait();
+            }
+
         }
 
     }
