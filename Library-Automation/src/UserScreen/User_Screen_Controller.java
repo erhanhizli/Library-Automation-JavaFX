@@ -24,9 +24,11 @@ public class User_Screen_Controller implements Initializable{
     public Label lblUsername;
     @FXML
     public Button myprofile;
+    public Label lblUseridFromMyProfile;
 
 
     Stage stage = new Stage();
+    Stage stage2 = new Stage();
 
     /* public void GoToMyProfile(ActionEvent event) throws IOException
      {
@@ -39,6 +41,8 @@ public class User_Screen_Controller implements Initializable{
          stage.show();
      }
  */
+/*
+
     public void GoToBooks(ActionEvent event) throws IOException
     {
         ((Node) (event.getSource())).getScene().getWindow().hide();
@@ -48,7 +52,7 @@ public class User_Screen_Controller implements Initializable{
         stage.setTitle("Books");
         stage.setScene(scnBooks);
         stage.show();
-    }
+    }*/
 
     public void Logout(ActionEvent event) throws IOException
     {
@@ -103,5 +107,21 @@ public class User_Screen_Controller implements Initializable{
 
         lblUsername.setText(text);
     }
+    public void GoToBooks (ActionEvent event)throws IOException
+    {
+        ((Node) (event.getSource())).getScene().getWindow().hide();
+        FXMLLoader loader2=new FXMLLoader(getClass().getResource("Books.fxml"));
+        Parent root2 = loader2.load();
+        Books_Controller fourthController = loader2.getController();
+        fourthController.setlblFromUserScreen(lblUsername.getText());
+
+
+        stage2.setTitle("User Screen");
+        Scene scene2 = new Scene(root2);
+        stage2.setScene(scene2);
+        stage2.show();
+    }
+
+
 
 }

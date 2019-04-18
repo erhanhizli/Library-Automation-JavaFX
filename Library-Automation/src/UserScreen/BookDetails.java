@@ -23,85 +23,85 @@ public class BookDetails {
         this.book_quantity = new SimpleStringProperty(book_quantity);
 
     }
-        //getters
-        public String getbook_id ()
-        {
-            return book_id.get();
-        }
-        public String getbook_title ()
-        {
-            return book_title.get();
-        }
-        public String getauthor_id ()
-        {
-            return author_id.get();
-        }
-        public String getcategory_id ()
-        {
-            return category_id.get();
-        }
-        public String getbook_language ()
-        {
-            return book_language.get();
-        }
-        public String getbook_quantity ()
-        {
-            return book_quantity.get();
-        }
+    //getters
+    public String getbook_id ()
+    {
+        return book_id.get();
+    }
+    public String getbook_title ()
+    {
+        return book_title.get();
+    }
+    public String getauthor_id ()
+    {
+        return author_id.get();
+    }
+    public String getcategory_id ()
+    {
+        return category_id.get();
+    }
+    public String getbook_language ()
+    {
+        return book_language.get();
+    }
+    public String getbook_quantity ()
+    {
+        return book_quantity.get();
+    }
 
 
-        //setters
-        public void setbook_id (String value)
-        {
-            book_id.set(value);
-        }
-        public void setbook_title (String value)
-        {
-            book_title.set(value);
-        }
-        public void setauthor_id (String value)
-        {
-            author_id.set(value);
-        }
-        public void setcategory_id (String value)
-        {
-            category_id.set(value);
-        }
-        public void setbook_language (String value)
-        {
-            book_language.set(value);
-        }
-        public void setbook_quantity (String value)
-        {
-            book_quantity.set(value);
-        }
+    //setters
+    public void setbook_id (String value)
+    {
+        book_id.set(value);
+    }
+    public void setbook_title (String value)
+    {
+        book_title.set(value);
+    }
+    public void setauthor_id (String value)
+    {
+        author_id.set(value);
+    }
+    public void setcategory_id (String value)
+    {
+        category_id.set(value);
+    }
+    public void setbook_language (String value)
+    {
+        book_language.set(value);
+    }
+    public void setbook_quantity (String value)
+    {
+        book_quantity.set(value);
+    }
 
 
-        // Property Values
-        public StringProperty book_idProperty ()
-        {
-            return book_id;
-        }
-        public StringProperty book_titleProperty ()
-        {
-            return book_title;
-        }
-        public StringProperty author_idProperty ()
-        {
-            return author_id;
-        }
-        public StringProperty category_idProperty ()
-        {
-            return category_id;
-        }
-        public StringProperty book_languageProperty ()
-        {
-            return book_language;
-        }
-        public StringProperty book_quantityProperty ()
-        {
-            return book_quantity;
-        }
+    // Property Values
+    public StringProperty book_idProperty ()
+    {
+        return book_id;
+    }
+    public StringProperty book_titleProperty ()
+    {
+        return book_title;
+    }
+    public StringProperty author_idProperty ()
+    {
+        return author_id;
+    }
+    public StringProperty category_idProperty ()
+    {
+        return category_id;
+    }
+    public StringProperty book_languageProperty ()
+    {
+        return book_language;
+    }
+    public StringProperty book_quantityProperty ()
+    {
+        return book_quantity;
+    }
 
 
 }

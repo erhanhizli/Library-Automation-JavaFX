@@ -27,58 +27,10 @@ public class User_Login_Controller implements Initializable{
     public TextField txtUserName;
     public PasswordField txtUserPassword;
     public Label lblUsername;
-   @FXML
+    @FXML
     public Button User1_Login;
     Stage stage = new Stage();
 
-/*
-    public void login(ActionEvent event) throws IOException {
-
-        Conn.DBConnection connectionClass = new Conn.DBConnection();
-        Connection connection = connectionClass.connect();
-
-
-
-        if (txtUserName.getText().isEmpty() || txtUserPassword.getText().isEmpty()) {
-            lblUsername.setText(txtUserName.getText());
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("");
-            alert.setHeaderText("Error occurred!");
-            alert.setContentText("Please enter all necessary information!");
-
-            alert.showAndWait();
-        }
-
-        try {
-
-
-            Statement statement = connection.createStatement();
-            String sql = "SELECT * FROM user_info WHERE username = '" + txtUserName.getText() + "' AND user_password = '" + txtUserPassword.getText() + "'";
-            ResultSet resultSet = statement.executeQuery(sql);
-
-            if (resultSet.next()) {
-                ((Node) (event.getSource())).getScene().getWindow().hide();
-                Parent p1 = FXMLLoader.load(getClass().getResource("../UserScreen/UserMainScreen.fxml"));
-                Scene scnSignin = new Scene(p1);
-
-                stage.setTitle("User Screen");
-                stage.setScene(scnSignin);
-                stage.show();
-
-            } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("");
-                alert.setHeaderText("Login Failed!");
-                alert.setContentText("Please check your username and password!");
-
-                alert.showAndWait();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-    }
-*/
 
     public void GoBack(ActionEvent event) throws IOException {
         ((Node) (event.getSource())).getScene().getWindow().hide();
@@ -119,16 +71,13 @@ public class User_Login_Controller implements Initializable{
 
                 FXMLLoader loader=new FXMLLoader(getClass().getResource("../UserScreen/UserMainScreen.fxml"));
 
-
                 try {
                     Parent root=loader.load();
                     User_Screen_Controller secondController=loader.getController();
                     secondController.setLblusername(txtUserName.getText());
 
-
                     Conn.DBConnection connectionClass = new Conn.DBConnection();
-                    Connection connection = connectionClass.connect();
-
+                    Connection connection = connectionClass.Connect();
 
 
                     if (txtUserName.getText().isEmpty() || txtUserPassword.getText().isEmpty()) {
@@ -142,8 +91,6 @@ public class User_Login_Controller implements Initializable{
                     }
 
                     try {
-
-
                         Statement statement = connection.createStatement();
                         String sql = "SELECT * FROM user_info WHERE username = '" + txtUserName.getText() + "' AND user_password = '" + txtUserPassword.getText() + "'";
                         ResultSet resultSet = statement.executeQuery(sql);
@@ -168,16 +115,10 @@ public class User_Login_Controller implements Initializable{
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
-
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
-
             }
         });
-
     }
-
-    }
-
+}

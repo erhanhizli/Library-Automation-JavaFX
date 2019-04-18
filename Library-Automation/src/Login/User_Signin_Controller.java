@@ -46,7 +46,7 @@ public class User_Signin_Controller {
     }
     public void InsertUser(ActionEvent event) throws SQLException,IOException
     {
-        Connection conn = dc.connect();
+        Connection conn = dc.Connect();
 
         boolean isSelectedMale = Male.isSelected();
         boolean isSelectedFemale = Female.isSelected();
@@ -69,12 +69,12 @@ public class User_Signin_Controller {
 
             if(Female.isSelected() == true && Male.isSelected() == true)
             {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("");
-                alert.setHeaderText("Error occurred!");
-                alert.setContentText("Please choose only one gender!");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("");
+            alert.setHeaderText("Error occurred!");
+            alert.setContentText("Please choose only one gender!");
 
-                alert.showAndWait();
+            alert.showAndWait();
             }
 
             else if(Male.isSelected() == true)

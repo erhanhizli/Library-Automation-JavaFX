@@ -1,5 +1,6 @@
 package Login;
 
+import Conn.DBConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -10,63 +11,51 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-
 public class Controller {
 
+    private DBConnection dc;
 
-    public Label isConnected;
-    public TextField txtAdminName=new TextField();
-    public TextField txtAdminPassword=new TextField();
+    public Label isConnected = new Label();
 
-    Stage stage = new Stage();
+    public TextField txtAdminName = new TextField();
+    public TextField txtAdminPassword = new TextField();
 
-    public void GoUserLoginPage(ActionEvent event) throws IOException {
-        ((Node) (event.getSource())).getScene().getWindow().hide();
+    private Stage stage = new Stage();
+
+    public void GoUserLoginPage(ActionEvent event) throws IOException
+    {
+        ((Node)(event.getSource())).getScene().getWindow().hide();
         Parent p1 = FXMLLoader.load(getClass().getResource("User_Login.fxml"));
         Scene scnUserLogin = new Scene(p1);
 
         stage.setTitle("User Login");
         stage.setScene(scnUserLogin);
         stage.show();
-     //  GoSomewhere("ActionEvent","User_Login","User Login");
     }
-    /*public void GoSomewhere(ActionEvent event ,String x1,String x2)throws IOException{
-        ((Node) (event.getSource())).getScene().getWindow().hide();
-        Parent p1 = FXMLLoader.load(getClass().getResource("x1.fxml"));
-        Scene scn = new Scene(p1);
-
-        stage.setTitle("x2");
-        stage.setScene(scn);
-        stage.show();
-    }*/
-
-    public void GoAdminLoginPage(ActionEvent event) throws IOException {
-        ((Node) (event.getSource())).getScene().getWindow().hide();
-        Parent p1 = FXMLLoader.load(getClass().getResource("Admin_Login.fxml"));
+    public void GoAdminLoginPage (ActionEvent event) throws IOException
+    {
+        ((Node)(event.getSource())).getScene().getWindow().hide();
+        Parent p1 = FXMLLoader.load(getClass().getResource("../Admin/Admin_Login.fxml"));
         Scene scnAdminLogin = new Scene(p1);
 
         stage.setTitle("Admin Login");
         stage.setScene(scnAdminLogin);
         stage.show();
     }
-
-
-
-
-
-
-    public void LoginAdmin(ActionEvent event) {
+    public void LoginAdmin(ActionEvent event)
+    {
         Conn.DBConnection connectionClass = new Conn.DBConnection();
-        Connection connection = connectionClass.connect();
+        Connection connection = connectionClass.Connect();
         try {
             Statement statement = connection.createStatement();
-            String sql = "SELECT * FROM lgnpage WHERE username = '" + txtAdminName.getText() + "' AND password = '" + txtAdminPassword.getText() + "'";
+            String sql = "SELECT * FROM users WHERE username = '" + txtAdminName.getText() + "' AND password = '" + txtAdminPassword.getText() + "'";
             ResultSet resultSet = statement.executeQuery(sql);
 
             if (resultSet.next()) {
@@ -79,5 +68,4 @@ public class Controller {
             e.printStackTrace();
         }
     }
-
 }

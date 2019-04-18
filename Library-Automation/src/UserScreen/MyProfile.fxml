@@ -4,10 +4,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="420.0" prefWidth="966.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserScreen.MyProfile_Controller">
+<AnchorPane prefHeight="420.0" prefWidth="966.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserScreen.MyProfile_Controller">
     <children>
         <TableView fx:id="TableProfile" layoutX="9.0" layoutY="61.0" prefHeight="130.0" prefWidth="949.0">
             <columns>
@@ -22,17 +21,17 @@
                 <TableColumn fx:id="Username" prefWidth="106.0" text="Username" />
             </columns>
         </TableView>
-        <TableView fx:id="TableRentedBooks" layoutX="14.0" layoutY="206.0" prefHeight="200.0" prefWidth="200.0">
+        <TableView fx:id="TableRentedBooks" layoutX="36.0" layoutY="206.0" prefHeight="200.0" onMouseClicked="#displaySelected" prefWidth="223.0">
             <columns>
-                <TableColumn fx:id="RentedBooks" prefWidth="199.0" text="Rented Books" />
+                <TableColumn fx:id="book_title" prefWidth="222.0" text="Rented Books" />
             </columns>
         </TableView>
         <Button layoutX="224.0" layoutY="14.0" mnemonicParsing="false" onAction="#ShowMyInformation" prefHeight="42.0" prefWidth="168.0" text="Show My Information" />
         <Button fx:id="btnUpdateScreen" layoutX="411.0" layoutY="14.0" mnemonicParsing="false" onAction="#GoToUpdateProfile" prefHeight="42.0" prefWidth="168.0" text="Update Profile" />
-        <Button layoutX="595.0" layoutY="14.0" mnemonicParsing="false"  prefHeight="42.0" prefWidth="168.0" text="Show Rented Books" />
-        <Button layoutX="224.0" layoutY="249.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="168.0" text="Return Book" />
-        <TextField layoutX="224.0" layoutY="206.0" prefHeight="31.0" prefWidth="168.0" promptText="Book Title" />
-      <Label fx:id="Lblusernamemyprofile" layoutX="903.0" layoutY="14.0" text="Label" />
-      <Button fx:id="btnbacktomain" layoutX="890.0" layoutY="30.0" mnemonicParsing="false" onAction="#backtomain" text="Back" />
+        <Button layoutX="595.0" layoutY="14.0" mnemonicParsing="false" onAction="#ShowMyRentedBooks" prefHeight="42.0" prefWidth="168.0" text="Show Rented Books" />
+        <Button layoutX="273.0" layoutY="206.0" mnemonicParsing="false" onAction="#ReturnRentedBook" prefHeight="42.0" prefWidth="168.0" text="Return Book" />
+        <Label fx:id="Lblusernamemyprofile" layoutX="903.0" layoutY="14.0" text="Label" />
+        <Button fx:id="btnbacktomain" layoutX="890.0" layoutY="30.0" mnemonicParsing="false" onAction="#backtomain" text="Back" />
+      <Label fx:id="lblBookTitle" layoutX="340.0" layoutY="285.0" />
     </children>
 </AnchorPane>

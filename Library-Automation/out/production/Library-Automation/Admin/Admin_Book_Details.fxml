@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="510.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.Admin_Book_Details_Controller">
+    <children>
+        <Button layoutX="618.0" layoutY="14.0" mnemonicParsing="false" onAction="#GoToAdminScreen" text="Button" />
+        <Button layoutX="36.0" layoutY="14.0" mnemonicParsing="false" onAction="#ShowBookDetails" text="Show Book Details" />
+        <TableView fx:id="BookDetailsTable" layoutX="14.0" layoutY="56.0" prefHeight="218.0" prefWidth="666.0">
+            <columns>
+                <TableColumn fx:id="book_id" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="book_title" prefWidth="150.0" text="Title" />
+                <TableColumn fx:id="author_id" prefWidth="111.0" text="Author ID" />
+                <TableColumn fx:id="category_id" prefWidth="106.0" text="Category" />
+                <TableColumn fx:id="book_language" prefWidth="100.0" text="Language" />
+                <TableColumn fx:id="book_quantity" prefWidth="126.0" text="Quantity" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

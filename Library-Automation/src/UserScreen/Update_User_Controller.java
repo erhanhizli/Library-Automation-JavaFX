@@ -36,23 +36,13 @@ public class Update_User_Controller implements Initializable {
     public TextField txtphone;
     public TextField txtemail;
 
-/*
-    public void GoBack(ActionEvent event) throws IOException {
-        ((Node) (event.getSource())).getScene().getWindow().hide();
-        Parent p1 = FXMLLoader.load(getClass().getResource("MyProfile.fxml"));
-        Scene scnBack = new Scene(p1);
 
-        stage.setTitle("Login");
-        stage.setScene(scnBack);
-        stage.show();
-    }*/
-
-    Connection conn = dc.connect();
+    Connection conn = dc.Connect();
     public void UpdateProfile(ActionEvent event)throws SQLException
     {
 
 
-        if(First_Name.getText().isEmpty() || Last_Name.getText().isEmpty() || txtpassword.getText().isEmpty() )
+        if(First_Name.getText().isEmpty() || Last_Name.getText().isEmpty() || txtpassword.getText().isEmpty() || txtemail.getText().isEmpty() || txtpassword.getText().isEmpty() )
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("");
@@ -63,8 +53,6 @@ public class Update_User_Controller implements Initializable {
         }
         else
         {
-
-
             Statement statement = conn.createStatement();
             String sql = "UPDATE user_info SET user_name='"+First_Name.getText()+"', user_lastname='"+Last_Name.getText()+"', user_password='"+txtpassword.getText()+"', user_phone='"+txtphone.getText()+"', user_email='"+txtemail.getText()+"' WHERE username='"+lbluserupdate.getText()+"'";
             statement.executeUpdate(sql);
@@ -73,13 +61,10 @@ public class Update_User_Controller implements Initializable {
             alert.setTitle("");
             alert.setHeaderText("You have successfully updated your information!");
             alert.showAndWait();
-
         }
-
     }
 
     @Override
-
     public void initialize(URL location, ResourceBundle resources) {
 
         Back_Button.setOnAction(new EventHandler<ActionEvent>() {
@@ -87,7 +72,6 @@ public class Update_User_Controller implements Initializable {
             public void handle(ActionEvent event) {
 
                 FXMLLoader loader=new FXMLLoader(getClass().getResource("MyProfile.fxml"));
-
 
                 try {
                     Parent root=loader.load();
@@ -106,28 +90,21 @@ public class Update_User_Controller implements Initializable {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
-
             }
         });
-
     }
-
     public void setLblusernameupdatescreen(String text){
 
         lbluserupdate.setText(text);
     }
 
-
     PreparedStatement pst=null;
     ResultSet rs=null;
     public void btnLoadInfo(ActionEvent event) {
 
-
         try {
             String sql = "SELECT user_name,user_lastname,user_password,user_phone,user_email FROM user_info WHERE username ='"+lbluserupdate.getText()+"'";
             pst=conn.prepareStatement(sql);
-            //pst.setString(9,lbluserupdate.getText());
 
             rs = pst.executeQuery();
             if(rs.next()) {
@@ -151,10 +128,5 @@ public class Update_User_Controller implements Initializable {
             JOptionPane.showMessageDialog(null, e);
 
         }
-
     }
-
-
-
-
 }

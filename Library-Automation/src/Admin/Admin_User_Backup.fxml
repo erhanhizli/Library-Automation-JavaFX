@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="644.0" prefWidth="907.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.Admin_User_Backup_Controller">
+    <children>
+        <Button layoutX="843.0" layoutY="14.0" mnemonicParsing="false" onAction="#GoToAdminScreen" text="Back" />
+        <TableView fx:id="UserDetailsBackupTable" layoutX="14.0" layoutY="77.0" prefHeight="226.0" prefWidth="879.0">
+            <columns>
+                <TableColumn fx:id="backup_username" prefWidth="109.0" text="Username" />
+                <TableColumn fx:id="backup_user_name" prefWidth="128.0" text="Name" />
+                <TableColumn fx:id="backup_user_lastname" prefWidth="129.0" text="Lastname" />
+                <TableColumn fx:id="backup_user_password" prefWidth="146.0" text="Password" />
+                <TableColumn fx:id="backup_user_phone" prefWidth="163.0" text="Phone" />
+                <TableColumn fx:id="backup_user_email" prefWidth="203.0" text="E-Mail" />
+            </columns>
+        </TableView>
+        <Button layoutX="54.0" layoutY="27.0" mnemonicParsing="false" onAction="#ShowUserDetails" prefHeight="26.0" prefWidth="151.0" text="Show User Details" />
+        <Button layoutX="23.0" layoutY="322.0" mnemonicParsing="false" text="Delete User" />
+    </children>
+</AnchorPane>

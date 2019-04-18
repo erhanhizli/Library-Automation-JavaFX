@@ -8,41 +8,41 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="406.0" prefWidth="371.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Login.User_Login_Controller">
-   <children>
-      <Button fx:id="User1_Login" layoutX="243.0" layoutY="134.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="82.0" text="Login">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Button>
-      <TextField fx:id="txtUserName" layoutX="155.0" layoutY="52.0" />
-      <Label layoutX="38.0" layoutY="57.0" text="Username:">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="38.0" layoutY="99.0" text="Password:">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Button fx:id="User_Signin" layoutX="195.0" layoutY="332.0" mnemonicParsing="false" onAction="#GoSignin" prefHeight="32.0" prefWidth="89.0" text="Register">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Button>
-      <Label layoutX="137.0" layoutY="14.0" />
-      <Button fx:id="Back_Button" layoutX="297.0" layoutY="10.0" mnemonicParsing="false" onAction="#GoBack" text="Back" />
-      <Label layoutX="55.0" layoutY="342.0" prefHeight="15.0" prefWidth="130.0" text="Not a member yet?">
-         <font>
-            <Font size="12.0" />
-         </font>
-      </Label>
-      <Button fx:id="Forgotpassword" layoutX="140.0" layoutY="173.0" mnemonicParsing="false" onAction="#GoForgot" prefHeight="0.0" prefWidth="186.0" text="Forgot password?">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Button>
-      <PasswordField fx:id="txtUserPassword" layoutX="154.0" layoutY="96.0" />
-      <Label fx:id="lblUsername" layoutX="284.0" layoutY="59.0" />
-   </children>
+    <children>
+        <Button fx:id="User1_Login" layoutX="243.0" layoutY="134.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="82.0" text="Login">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Button>
+        <TextField fx:id="txtUserName" layoutX="155.0" layoutY="52.0" />
+        <Label layoutX="38.0" layoutY="57.0" text="Username:">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="38.0" layoutY="99.0" text="Password:">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Label>
+        <Button fx:id="User_Signin" layoutX="195.0" layoutY="332.0" mnemonicParsing="false" onAction="#GoSignin" prefHeight="32.0" prefWidth="89.0" text="Register">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Button>
+        <Label layoutX="137.0" layoutY="14.0" />
+        <Button fx:id="Back_Button" layoutX="297.0" layoutY="10.0" mnemonicParsing="false" onAction="#GoBack" text="Back" />
+        <Label layoutX="55.0" layoutY="342.0" prefHeight="15.0" prefWidth="130.0" text="Not a member yet?">
+            <font>
+                <Font size="12.0" />
+            </font>
+        </Label>
+        <Button fx:id="Forgotpassword" layoutX="140.0" layoutY="173.0" mnemonicParsing="false" onAction="#GoForgot" prefHeight="0.0" prefWidth="186.0" text="Forgot password?">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Button>
+        <PasswordField fx:id="txtUserPassword" layoutX="154.0" layoutY="96.0" />
+        <Label fx:id="lblUsername" layoutX="284.0" layoutY="59.0" />
+    </children>
 </AnchorPane>

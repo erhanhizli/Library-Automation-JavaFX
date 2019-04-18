@@ -40,7 +40,7 @@ public class Forgot_Password_Controller {
     public void CheckRecovery(ActionEvent event) throws IOException
     {
         Conn.DBConnection connectionClass = new Conn.DBConnection();
-        Connection connection = connectionClass.connect();
+        Connection connection = connectionClass.Connect();
         try {
             Statement statement = connection.createStatement();
             String sql = "SELECT * FROM user_info WHERE user_email = '" + txtemail.getText() + "' AND user_recovery = '" + color.getText() + "'";
