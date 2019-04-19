@@ -49,23 +49,5 @@ public class Controller {
         stage.setScene(scnAdminLogin);
         stage.show();
     }
-    public void LoginAdmin(ActionEvent event)
-    {
-        Conn.DBConnection connectionClass = new Conn.DBConnection();
-        Connection connection = connectionClass.Connect();
-        try {
-            Statement statement = connection.createStatement();
-            String sql = "SELECT * FROM users WHERE username = '" + txtAdminName.getText() + "' AND password = '" + txtAdminPassword.getText() + "'";
-            ResultSet resultSet = statement.executeQuery(sql);
 
-            if (resultSet.next()) {
-                isConnected.setText("Connected");
-
-            } else {
-                isConnected.setText("Not Connected");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 }

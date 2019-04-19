@@ -37,7 +37,7 @@ public class User_Login_Controller implements Initializable{
         Parent p1 = FXMLLoader.load(getClass().getResource("Login.fxml"));
         Scene scnBack = new Scene(p1);
 
-        stage.setTitle("Login");
+        stage.setTitle("LibraryApp");
         stage.setScene(scnBack);
         stage.show();
     }
@@ -99,7 +99,7 @@ public class User_Login_Controller implements Initializable{
                             ((Node) (event.getSource())).getScene().getWindow().hide();
 
 
-                            stage.setTitle("User Screen");
+                            stage.setTitle("LibraryApp");
                             Scene scene=new Scene(root);
                             stage.setScene(scene);
                             stage.show();

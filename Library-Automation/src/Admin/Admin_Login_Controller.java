@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -19,7 +20,7 @@ public class Admin_Login_Controller {
     Stage stage = new Stage();
 
     public TextField txtAdminName;
-    public TextField txtAdminPassword;
+    public PasswordField txtAdminPassword;
 
     public void GoBack(ActionEvent event) throws IOException {
         ((Node) (event.getSource())).getScene().getWindow().hide();

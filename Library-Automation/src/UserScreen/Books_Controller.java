@@ -19,6 +19,10 @@ import java.io.IOException;
 import java.sql.*;
 
 public class Books_Controller {
+    private DBConnection dc;
+    public ObservableList<ShowAllBooks> data;
+
+
     @FXML
     private TableColumn<UserScreen.ShowAllBooks,String> book_id;
     @FXML
@@ -44,7 +48,8 @@ public class Books_Controller {
     public ObservableList<UserScreen.ShowAllBooks> data2;
     private Stage stage = new Stage();
     private Stage stage2 = new Stage();
-    private DBConnection dc;
+
+    public TextField txtSearchBook;
 
     public void setlblFromUserScreen(String text){
 
@@ -160,6 +165,41 @@ public class Books_Controller {
                 alert.showAndWait();
             }
         }
+    }
+
+    public void SearchBook(ActionEvent event)
+    {
+        Conn.DBConnection connectionClass = new Conn.DBConnection();
+        Connection connection = connectionClass.Connect();
+
+
+        try {
+            data = FXCollections.observableArrayList();
+            // Execute query
+            ResultSet resultSet = connection.createStatement().executeQuery("select * from book_details where book_title='"+txtSearchBook.getText()+"'");
+
+            while(resultSet.next())
+            {
+                //get string from db
+                data.add(new UserScreen.ShowAllBooks(resultSet.getString(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getString(5)));
+
+            }
+        } catch (SQLException ex) {
+            System.err.println("Error" + ex);
+        }
+
+        // Set cell value factory to Table view
+        // NB.PropertyValue Factory must be same with the one set in model class.
+        book_id.setCellValueFactory(new PropertyValueFactory<>("book_id"));
+        book_title.setCellValueFactory(new PropertyValueFactory<>("book_title"));
+        author_name.setCellValueFactory(new PropertyValueFactory<>("author_name"));
+        category_name.setCellValueFactory(new PropertyValueFactory<>("category_name"));
+        book_language.setCellValueFactory(new PropertyValueFactory<>("book_language"));
+
+
+
+        AllBooks.setItems(null);
+        AllBooks.setItems(data);
     }
 
 }

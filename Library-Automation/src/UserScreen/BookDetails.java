@@ -10,17 +10,16 @@ public class BookDetails {
     private final StringProperty author_id;
     private final StringProperty category_id;
     private final StringProperty book_language;
-    private final StringProperty book_quantity;
 
 
     //Constructor
-    public BookDetails(String book_id, String book_title, String author_id, String category_id, String book_language, String book_quantity) {
+    public BookDetails(String book_id, String book_title, String author_id, String category_id, String book_language) {
         this.book_id = new SimpleStringProperty(book_id);
         this.book_title = new SimpleStringProperty(book_title);
         this.author_id = new SimpleStringProperty(author_id);
         this.category_id = new SimpleStringProperty(category_id);
         this.book_language = new SimpleStringProperty(book_language);
-        this.book_quantity = new SimpleStringProperty(book_quantity);
+
 
     }
     //getters
@@ -44,10 +43,7 @@ public class BookDetails {
     {
         return book_language.get();
     }
-    public String getbook_quantity ()
-    {
-        return book_quantity.get();
-    }
+
 
 
     //setters
@@ -71,10 +67,7 @@ public class BookDetails {
     {
         book_language.set(value);
     }
-    public void setbook_quantity (String value)
-    {
-        book_quantity.set(value);
-    }
+
 
 
     // Property Values
@@ -98,10 +91,5 @@ public class BookDetails {
     {
         return book_language;
     }
-    public StringProperty book_quantityProperty ()
-    {
-        return book_quantity;
-    }
-
 
 }
